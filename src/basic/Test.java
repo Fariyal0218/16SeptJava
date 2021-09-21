@@ -35,6 +35,7 @@ public class Test {
             throws InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
         Test test = new Test();
         test.show();
+//        test.integer.equals()
 
         Test test1 = Test.class.newInstance();
         test1.show();
