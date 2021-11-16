@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Calculator {
 
-
     private void add(){
         int i;
         int j;

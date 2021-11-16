@@ -14,7 +14,7 @@ public class Inheritance {//Parent class,base class, super class
     }
 }
 
-class Child  extends Inheritance{ //child class , derived class, sub class
+class Child  extends Inheritance{ //child class , derived class, subclass
 
     public static void main(String[] args) {
 
