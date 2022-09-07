@@ -1,7 +1,4 @@
-package com.example.SeptJavaSpring.jpa;
-
-import lombok.Getter;
-import lombok.Setter;
+package com.example.SeptJavaSpring.colorlib.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,19 +6,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-@Getter
-@Setter
-public class Employee {
+public class MealPreference {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    private Integer id;
 
-    String name;
+    private String meal;
 
-    String address;
-
-    Long contactNo;
-
-    String gender;
 }

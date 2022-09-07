@@ -2,6 +2,8 @@ package com.example.SeptJavaSpring.jpa;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Optional;
+
 @RestController
 public class EmployeeController {
 
@@ -9,15 +11,41 @@ public class EmployeeController {
     private EmployeeRepository employeeRepository;
 
     @PostMapping("saveEmployee")
-    public String saveEmployee(@RequestBody Employee em){
-        employeeRepository.save(em);
+    public String saveEmployee(@RequestBody Employee employee){
+        employeeRepository.save(employee);
         return "Employee saved...";
     }
 
-    @GetMapping("get employee")
-    public List<Employee> getEmployee(){
+    @GetMapping("getEmployee/{id}")
+    public Employee getEmpById(@PathVariable(value = "id" )Integer id){
+        return employeeRepository.getById(id);
 
-        return employeeRepository.findAll();
+    }
+
+    @GetMapping("getEmployeeOpt/{id}")
+    public Optional<Employee> getEmpByIdOpt(@PathVariable(value = "id")Integer id){
+        return employeeRepository.findById(id);
+    }
+    @GetMapping("getEmpByIdAndName")
+    public Employee getEmpByIdAndName(@RequestParam("id")Integer id,
+                                      @RequestParam("name")String name){
+        return employeeRepository.findByIdAndName(id,name);
+    }
+
+    @GetMapping("getEmpByIdOrName")
+    public List<Employee> getEmpByIdOrName(@RequestParam("id")Integer id,
+                                           @RequestParam("name")String name){
+        return employeeRepository.findByIdOrName(id,name);
+    }
+
+    @GetMapping("getNameStartingWith")
+    public List<Employee> getNameStartingWith(@RequestParam("name")String name){
+        return employeeRepository.findByNameStartingWith(name);
+    }
+
+    @GetMapping("getNameEndingWith")
+    public List<Employee> getNameEndingWith(@RequestParam("name")String name){
+        return employeeRepository.findByNameEndingWith(name);
     }
 
     @PutMapping("updateEmployee")

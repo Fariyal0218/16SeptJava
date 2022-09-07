@@ -1,7 +1,7 @@
-package com.example.SeptJavaSpring.jpa;
+package com.example.SeptJavaSpring.composite.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+
+import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,19 +9,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-@Getter
-@Setter
-public class Employee {
+@Data
+public class Gender {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    private Integer id;
 
-    String name;
-
-    String address;
-
-    Long contactNo;
-
-    String gender;
+    private String gender;
 }

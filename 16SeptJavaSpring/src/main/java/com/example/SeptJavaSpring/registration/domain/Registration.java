@@ -1,4 +1,4 @@
-package com.example.SeptJavaSpring.jpa;
+package com.example.SeptJavaSpring.registration.domain;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -11,17 +11,20 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @Setter
-public class Employee {
+public class Registration {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
 
-    String name;
+    private Integer id;
 
-    String address;
+    private String name;
 
-    Long contactNo;
+    private String address;
 
-    String gender;
+    private String contactNumber;
+
+    private String password;
+
+
 }
